@@ -1,9 +1,21 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showFloatingMenu, setShowFloatingMenu] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+      setShowFloatingMenu(scrollPosition > heroHeight * 0.8);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +41,31 @@ export default function Home() {
 
   return (
     <div>
+      {/* Floating Menu */}
+      <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${showFloatingMenu ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+        <nav className="bg-white dark:bg-gray-800 rounded-full px-6 py-3 shadow-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex items-center space-x-6">
+            <a
+              href="#jak-dzialamy"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              Dlaczego My?
+            </a>
+            <a
+              href="#jak-to-dziala"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              Jak to działa?
+            </a>
+            <a
+              href="#kontakt"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              Kontakt
+            </a>
+          </div>
+        </nav>
+      </div>
       <section className="min-h-screen flex flex-col justify-center items-center px-4 py-24 text-center gap-6 relative overflow-hidden">
       {/* Marble background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-stone-300 to-slate-400 dark:from-slate-800 dark:via-gray-700 dark:to-stone-600">
@@ -39,6 +76,18 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 dark:bg-gray-900/20 rounded-full blur-xl animate-float"></div>
         <div className="absolute top-40 right-20 w-24 h-24 bg-white/15 dark:bg-gray-800/25 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-32 left-20 w-20 h-20 bg-white/20 dark:bg-gray-700/30 rounded-full blur-lg animate-float" style={{animationDelay: '4s'}}></div>
+        
+                          {/* Moving heart pair - right next to each other */}
+         <div className="absolute top-1/3 left-0 opacity-15 animate-heart-move">
+           <svg className="w-14 h-14 text-stone-400 dark:text-stone-300" fill="currentColor" viewBox="0 0 24 24">
+             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+           </svg>
+         </div>
+         <div className="absolute top-1/3 left-12 opacity-10 animate-heart-move-2">
+           <svg className="w-12 h-12 text-stone-500 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
+             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+           </svg>
+         </div>
       </div>
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full">
@@ -60,10 +109,18 @@ export default function Home() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-stone-400 dark:via-stone-500 to-transparent"></div>
       </div>
       
-      {/* Floating diamonds in hero */}
-      <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-stone-400 dark:bg-stone-500 rotate-45 animate-pulse opacity-60"></div>
-      <div className="absolute bottom-32 right-1/4 w-3 h-3 bg-stone-400 dark:bg-stone-500 rotate-45 animate-pulse opacity-60" style={{animationDelay: '1s'}}></div>
-      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-stone-500 dark:bg-stone-400 rotate-45 animate-bounce opacity-80"></div>
+      {/* Floating rectangles in hero */}
+      <div className="absolute bottom-32 left-1/4 animate-pulse opacity-60">
+        <div className="w-4 h-4 bg-stone-400 dark:bg-stone-500 transform rotate-45"></div>
+      </div>
+      <div className="absolute bottom-32 right-1/4 animate-pulse opacity-60" style={{animationDelay: '1s'}}>
+        <div className="w-4 h-4 bg-stone-400 dark:bg-stone-500 transform rotate-45"></div>
+      </div>
+      <a href="#jak-dzialamy" className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer opacity-80 hover:opacity-100 transition-opacity" style={{animation: 'bounce 2s infinite'}}>
+        <svg className="w-16 h-16 text-stone-500 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 16l-6-6h12l-6 6z"/>
+        </svg>
+      </a>
       
 
       
@@ -79,7 +136,7 @@ export default function Home() {
 
 
     {/* Dlaczego My? Section */}
-    <section id="jak-dzialamy" className="py-20 px-4 bg-white dark:bg-gray-900">
+    <section id="jak-dzialamy" className="pt-20 pb-8 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           Dlaczego My?
@@ -171,7 +228,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="text-center mb-4">
+        <div className="text-center mb-1">
           <a
             href="#kontakt"
             className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
@@ -187,10 +244,26 @@ export default function Home() {
     <div className="relative h-32 bg-gradient-to-b from-white via-gray-100 to-slate-200 dark:from-gray-900 dark:via-stone-800 dark:to-slate-700 overflow-hidden">
       {/* Geometric pattern */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-8 left-1/4 w-6 h-6 border-2 border-stone-400 dark:border-stone-500 rotate-45 animate-spin" style={{animationDuration: '8s'}}></div>
-        <div className="absolute top-8 right-1/4 w-6 h-6 border-2 border-stone-400 dark:border-stone-500 rotate-45 animate-spin" style={{animationDuration: '8s', animationDelay: '2s'}}></div>
-        <div className="absolute bottom-8 left-1/3 w-4 h-4 bg-stone-300 dark:bg-stone-600 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-8 right-1/3 w-4 h-4 bg-stone-300 dark:bg-stone-600 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-8 left-1/4 animate-spin" style={{animationDuration: '8s'}}>
+          <svg className="w-7 h-7 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div className="absolute top-8 right-1/4 animate-spin" style={{animationDuration: '8s', animationDelay: '2s'}}>
+          <svg className="w-7 h-7 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-8 left-1/3 animate-pulse">
+          <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-8 right-1/3 animate-pulse" style={{animationDelay: '1.5s'}}>
+          <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
       </div>
       {/* Zigzag pattern */}
       <div className="absolute inset-0 flex items-center justify-center">
@@ -206,7 +279,7 @@ export default function Home() {
     </div>
 
     {/* Jak to działa? Section */}
-    <section id="jak-to-dziala" className="py-20 px-4 bg-gradient-to-br from-slate-100 via-gray-200 to-stone-300 dark:from-stone-800 dark:via-slate-700 dark:to-gray-600 relative overflow-hidden">
+    <section id="jak-to-dziala" className="pt-20 pb-36 px-4 bg-gradient-to-br from-slate-100 via-gray-200 to-stone-300 dark:from-stone-800 dark:via-slate-700 dark:to-gray-600 relative overflow-hidden">
       {/* Marble texture overlays */}
       <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:30px_30px]"></div>
       <div className="absolute inset-0 opacity-15 bg-[linear-gradient(-45deg,transparent_40%,rgba(255,255,255,0.12)_50%,transparent_60%)] bg-[length:90px_90px]"></div>
@@ -252,7 +325,7 @@ export default function Home() {
               Spotkania
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              Spotkania tylko z&nbsp;osobami zgodnymi z&nbsp;Twoimi oczekiwaniami.
+              Spotkania z&nbsp;osobami zgodnymi z&nbsp;Twoimi oczekiwaniami.
             </p>
           </div>
         </div>
@@ -272,16 +345,8 @@ export default function Home() {
         </div>
       </div>
       
-    </section>
-
-    {/* Decorative Divider 3 */}
-    <div className="relative h-32 bg-gradient-to-br from-slate-100 via-gray-200 to-stone-300 dark:from-stone-800 dark:via-slate-700 dark:to-gray-600 overflow-hidden">
-      {/* Marble texture overlays - matching the process section above */}
-      <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:30px_30px]"></div>
-      <div className="absolute inset-0 opacity-15 bg-[linear-gradient(-45deg,transparent_40%,rgba(255,255,255,0.12)_50%,transparent_60%)] bg-[length:90px_90px]"></div>
-      
-      {/* Flowing lines */}
-      <div className="absolute inset-0">
+      {/* Decorative flowing lines integrated into process section - keeping original size */}
+      <div className="absolute bottom-0 left-0 right-0 h-32">
         <svg className="w-full h-full" viewBox="0 0 1200 128" preserveAspectRatio="none">
           <path d="M0,64 Q300,20 600,64 T1200,64" 
                 stroke="currentColor" 
@@ -303,12 +368,30 @@ export default function Home() {
           />
         </svg>
       </div>
-      {/* Floating circles */}
-      <div className="absolute top-1/2 left-1/6 w-2 h-2 bg-stone-400 dark:bg-stone-500 rounded-full animate-float opacity-70"></div>
-      <div className="absolute top-1/3 left-1/3 w-3 h-3 bg-stone-300 dark:bg-stone-600 rounded-full animate-float opacity-60" style={{animationDelay: '2s'}}></div>
-      <div className="absolute top-2/3 right-1/3 w-2 h-2 bg-stone-400 dark:bg-stone-500 rounded-full animate-float opacity-70" style={{animationDelay: '4s'}}></div>
-      <div className="absolute top-1/2 right-1/6 w-3 h-3 bg-stone-300 dark:bg-stone-600 rounded-full animate-float opacity-60" style={{animationDelay: '1s'}}></div>
-    </div>
+      
+      {/* Floating hearts in process section - keeping original positions */}
+      <div className="absolute bottom-16 left-1/6 animate-float opacity-70">
+        <svg className="w-3 h-3 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <div className="absolute bottom-20 left-1/3 animate-float opacity-60" style={{animationDelay: '2s'}}>
+        <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <div className="absolute bottom-12 right-1/3 animate-float opacity-70" style={{animationDelay: '4s'}}>
+        <svg className="w-3 h-3 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <div className="absolute bottom-16 right-1/6 animate-float opacity-60" style={{animationDelay: '1s'}}>
+        <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      
+    </section>
 
     {/* Contact Form Section */}
     <section id="kontakt" className="py-20 px-4 bg-gradient-to-br from-stone-100 via-slate-200 to-gray-300 dark:from-gray-800 dark:via-stone-700 dark:to-slate-600 relative overflow-hidden">
@@ -322,8 +405,11 @@ export default function Home() {
         </h2>
         <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-12">
           Wypełnij formularz poniżej albo zadzwoń na&nbsp;numer{" "}
-          <a href="tel:+48600434700" className="hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
-            📞 600 434 700
+          <a href="tel:+48600434700" className="hover:text-gray-900 dark:hover:text-white transition-colors font-medium inline-flex items-center gap-1">
+            <svg className="w-4 h-4 text-stone-600 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            600 434 700
           </a>
         </p>
         
@@ -448,21 +534,18 @@ export default function Home() {
     </section>
 
     {/* Decorative Divider 4 */}
-    <div className="relative h-24 bg-gradient-to-b from-gray-300 via-stone-200 to-stone-100 dark:from-slate-600 dark:via-stone-700 dark:to-gray-800 overflow-hidden">
+    <div className="relative h-12 bg-gradient-to-br from-stone-100 via-slate-200 to-gray-300 dark:from-gray-800 dark:via-stone-700 dark:to-slate-600 overflow-hidden">
       {/* Elegant wave pattern */}
-      <svg className="absolute top-0 w-full h-full" viewBox="0 0 1200 96" preserveAspectRatio="none">
-        <path d="M0,48 Q200,20 400,48 T800,48 Q1000,20 1200,48 L1200,96 L0,96 Z" 
+      <svg className="absolute top-0 w-full h-full" viewBox="0 0 1200 32" preserveAspectRatio="none">
+        <path d="M0,16 Q200,8 400,16 T800,16 Q1000,8 1200,16 L1200,32 L0,32 Z" 
               fill="currentColor" 
               className="text-stone-100 dark:text-gray-800 opacity-60"
         />
-        <path d="M0,60 Q300,30 600,60 T1200,60 L1200,96 L0,96 Z" 
+        <path d="M0,20 Q300,12 600,20 T1200,20 L1200,32 L0,32 Z" 
               fill="currentColor" 
               className="text-stone-100 dark:text-gray-800 opacity-40"
         />
       </svg>
-      {/* Subtle decorative elements */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-px bg-stone-400 dark:bg-stone-500 opacity-50"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-px h-8 bg-stone-400 dark:bg-stone-500 opacity-50"></div>
     </div>
 
     {/* Footer */}
@@ -471,7 +554,7 @@ export default function Home() {
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_40%_60%,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[length:30px_30px]"></div>
       <div className="absolute inset-0 opacity-15 bg-[linear-gradient(120deg,transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] bg-[length:80px_80px]"></div>
       
-      <div className="relative z-10 py-12 px-8">
+      <div className="relative z-10 py-6 px-8">
         <div className="w-full">
           {/* First row: Social media, Phone, Email */}
           <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
@@ -503,7 +586,7 @@ export default function Home() {
             
             {/* Email */}
             <div>
-              <a href="mailto:kontakt@magnes.pl" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-stone-700 dark:hover:text-stone-300 transition-colors">
+              <a href="mailto:magnes@matrymonialne24.pl" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-stone-700 dark:hover:text-stone-300 transition-colors">
                 kontakt@magnes.pl
               </a>
             </div>
@@ -511,13 +594,13 @@ export default function Home() {
           
           {/* Second row: Legal Links */}
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+            <a href="https://matrymonialne24.pl/regulamin/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
               Regulamin
             </a>
             <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
               Ustawienia ciasteczek
             </a>
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+            <a href="https://matrymonialne24.pl/wp-content/uploads/2025/05/Polityka-prywatnosci-Magnes.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
               Polityka Prywatności
             </a>
           </div>
