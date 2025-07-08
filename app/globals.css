@@ -148,6 +148,22 @@
   .animate-heart-move-2 {
     animation: heartMove2 18s ease-in-out infinite;
   }
+  
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+  
+  .animate-step-1 {
+    animation: stepAnimation1 5s ease-in-out infinite;
+  }
+  
+  .animate-step-2 {
+    animation: stepAnimation2 5s ease-in-out infinite;
+  }
+  
+  .animate-step-3 {
+    animation: stepAnimation3 5s ease-in-out infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -259,5 +275,53 @@
   100% {
     transform: translateX(calc(100vw + 15px)) translateY(35px) rotate(0deg);
     opacity: 0;
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes stepAnimation1 {
+  0%, 15% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+  20%, 75% {
+    background: linear-gradient(to bottom right, #72569c, #72569ccc);
+  }
+  80%, 100% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+}
+
+@keyframes stepAnimation2 {
+  0%, 35% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+  40%, 75% {
+    background: linear-gradient(to bottom right, #72569c, #72569ccc);
+  }
+  80%, 100% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+}
+
+@keyframes stepAnimation3 {
+  0%, 55% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+  60%, 75% {
+    background: linear-gradient(to bottom right, #72569c, #72569ccc);
+  }
+  80%, 100% {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563);
   }
 }

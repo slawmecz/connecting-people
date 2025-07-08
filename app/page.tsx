@@ -47,26 +47,32 @@ export default function Home() {
           <div className="flex items-center space-x-6">
             <a
               href="#jak-dzialamy"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
             >
               Dlaczego My?
             </a>
             <a
               href="#jak-to-dziala"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
             >
               Jak to działa?
             </a>
             <a
+              href="#pakiet-premium"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
+            >
+              Pakiet Premium
+            </a>
+            <a
               href="#kontakt"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
             >
               Kontakt
             </a>
           </div>
         </nav>
       </div>
-      <section className="min-h-screen flex flex-col justify-center items-center px-4 py-24 text-center gap-6 relative overflow-hidden">
+      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden" style={{height: 'calc(100vh + 64px)'}}>
       {/* Marble background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-stone-300 to-slate-400 dark:from-slate-800 dark:via-gray-700 dark:to-stone-600">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
@@ -77,14 +83,14 @@ export default function Home() {
         <div className="absolute top-40 right-20 w-24 h-24 bg-white/15 dark:bg-gray-800/25 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-32 left-20 w-20 h-20 bg-white/20 dark:bg-gray-700/30 rounded-full blur-lg animate-float" style={{animationDelay: '4s'}}></div>
         
-                          {/* Moving heart pair - right next to each other */}
-         <div className="absolute top-1/3 left-0 opacity-15 animate-heart-move">
-           <svg className="w-14 h-14 text-stone-400 dark:text-stone-300" fill="currentColor" viewBox="0 0 24 24">
+
+         <div className="absolute top-1/3 left-0 opacity-20 animate-heart-move">
+           <svg className="w-14 h-14" fill="#e2007a" viewBox="0 0 24 24">
              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
            </svg>
          </div>
-         <div className="absolute top-1/3 left-12 opacity-10 animate-heart-move-2">
-           <svg className="w-12 h-12 text-stone-500 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
+         <div className="absolute top-1/3 left-12 opacity-15 animate-heart-move-2">
+           <svg className="w-12 h-12" fill="#e2007a" viewBox="0 0 24 24">
              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
            </svg>
          </div>
@@ -96,11 +102,11 @@ export default function Home() {
           Ekskluzywne kojarzenie par dla osób, które nie&nbsp;godzą się na&nbsp;kompromisy.
         </p>
         <a
-          href="#jak-to-dziala"
-          className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
+          href="#jak-dzialamy"
+          className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
           style={{animationDelay: '0.6s'}}
         >
-          Zobacz, jak działamy
+          Zobacz, jak&nbsp;działamy
         </a>
       </div>
       
@@ -110,14 +116,14 @@ export default function Home() {
       </div>
       
       {/* Floating rectangles in hero */}
-      <div className="absolute bottom-32 left-1/4 animate-pulse opacity-60">
-        <div className="w-4 h-4 bg-stone-400 dark:bg-stone-500 transform rotate-45"></div>
+      <div className="absolute bottom-32 left-1/4 animate-pulse opacity-70">
+        <div className="w-4 h-4 bg-[#72569c] transform rotate-45"></div>
       </div>
-      <div className="absolute bottom-32 right-1/4 animate-pulse opacity-60" style={{animationDelay: '1s'}}>
-        <div className="w-4 h-4 bg-stone-400 dark:bg-stone-500 transform rotate-45"></div>
+      <div className="absolute bottom-32 right-1/4 animate-pulse opacity-70" style={{animationDelay: '1s'}}>
+        <div className="w-4 h-4 bg-[#72569c] transform rotate-45"></div>
       </div>
-      <a href="#jak-dzialamy" className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer opacity-80 hover:opacity-100 transition-opacity" style={{animation: 'bounce 2s infinite'}}>
-        <svg className="w-16 h-16 text-stone-500 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
+      <a href="#jak-dzialamy" className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 animate-bounce-gentle group z-50" style={{animationDelay: '1s'}}>
+        <svg className="w-16 h-16 text-stone-500 dark:text-stone-400 group-hover:text-[#e2007a] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 16l-6-6h12l-6 6z"/>
         </svg>
       </a>
@@ -143,57 +149,57 @@ export default function Home() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {/* Benefit 1 - Dyskrecja klasy VIP */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-slate-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-stone-100 to-slate-200 dark:from-slate-700 dark:to-stone-600 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-slate-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3l18 18" />
               </svg>
             </div>
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Dyskrecja klasy VIP</h3>
-                        <p className="text-gray-600 dark:text-gray-300">Nie wymagamy zdjęcia, Twoje dane kontaktowe są przekazywane za&nbsp;każdorazową zgodą</p>
+                        <p className="text-gray-600 dark:text-gray-300">Nie&nbsp;wymagamy zdjęcia, Twoje dane kontaktowe są&nbsp;przekazywane za&nbsp;każdorazową zgodą</p>
           </div>
 
-          {/* Benefit 2 - 12 miesięcy dopasowań */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-stone-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-100 to-gray-200 dark:from-stone-700 dark:to-slate-600 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-stone-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">12 miesięcy dopasowań</h3>
-            <p className="text-gray-600 dark:text-gray-300">Bez pośpiechu, dokładnie według Twoich preferencji</p>
+            <p className="text-gray-600 dark:text-gray-300">Bez pośpiechu, dokładnie według&nbsp;Twoich preferencji</p>
           </div>
 
-          {/* Benefit 3 - Pierwszeństwo wyboru */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-stone-200 dark:from-gray-700 dark:to-slate-600 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Pierwszeństwo wyboru</h3>
-            <p className="text-gray-600 dark:text-gray-300">Nowi kandydaci trafiają najpierw do&nbsp;Ciebie, a dopiero potem do&nbsp;Klientów z innymi pakietami</p>
+            <p className="text-gray-600 dark:text-gray-300">Nowi kandydaci trafiają najpierw do&nbsp;Ciebie, a&nbsp;dopiero potem do&nbsp;Klientów z&nbsp;innymi pakietami</p>
           </div>
 
 
-          {/* Benefit 5 - Promocja w sieci */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-slate-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-stone-200 to-slate-300 dark:from-slate-600 dark:to-stone-700 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-slate-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Promocja w sieci</h3>
-            <p className="text-gray-600 dark:text-gray-300">Możliwość promocji ogłoszenia w&nbsp;social media</p>
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Promocja w&nbsp;sieci</h3>
+            <p className="text-gray-600 dark:text-gray-300">Możliwość promocji ogłoszenia w&nbsp;mediach społecznościowych</p>
           </div>
 
-          {/* Benefit 6 - Opieka właściciela */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-stone-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-200 to-gray-300 dark:from-stone-600 dark:to-gray-700 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-stone-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
@@ -201,29 +207,29 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300">Właściciel biura osobiście przeprowadza cały proces</p>
           </div>
 
-          {/* Benefit 7 - Wywiad w biurze/domu */}
-          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700">
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-200 to-slate-300 dark:from-slate-700 dark:to-stone-600 rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 group">
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#72569c]/20 to-[#72569c]/40 dark:from-[#72569c]/30 dark:to-[#72569c]/50 group-hover:from-[#e2007a]/20 group-hover:to-[#e2007a]/40 dark:group-hover:from-[#e2007a]/30 dark:group-hover:to-[#e2007a]/50 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
+              <svg className="w-6 h-6 text-[#72569c] dark:text-[#72569c] group-hover:text-[#e2007a] dark:group-hover:text-[#e2007a] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Jesteś zapracowany, nie masz czasu?</h3>
-            <p className="text-gray-600 dark:text-gray-300">Właściciel biura przyjedzie do Ciebie celem
+            <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Jesteś zapracowany, nie&nbsp;masz czasu?</h3>
+            <p className="text-gray-600 dark:text-gray-300">Właściciel biura przyjedzie do&nbsp;Ciebie celem
             przeprowadzenia wywiadu, przedstawienia fotoofert, zrobienia zdjęć</p>
           </div>
         </div>
 
-        {/* Special highlight section - standalone without card styling */}
+        {/* highlight section*/}
         <div className="text-center py-12 mb-2">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              To przede wszystkim Ty wybierasz,<br className="hidden sm:block" />
+              To przede wszystkim Ty&nbsp;wybierasz,<br className="hidden sm:block" />
               a&nbsp;nie jesteś wybierany
             </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-stone-400 to-slate-600 dark:from-slate-500 dark:to-stone-300 mx-auto mb-6 rounded-full"></div>
+            <div className="w-24 h-1 bg-gray-900 dark:bg-white mx-auto mb-6 rounded-full"></div>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-              Masz większy wpływ na&nbsp;to z&nbsp;kim się umawiasz
+              Masz większy wpływ na&nbsp;to z&nbsp;kim się&nbsp;umawiasz
             </p>
           </div>
         </div>
@@ -231,7 +237,7 @@ export default function Home() {
         <div className="text-center mb-1">
           <a
             href="#kontakt"
-            className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300"
           >
             Umów się na&nbsp;dyskretną rozmowę
           </a>
@@ -245,12 +251,12 @@ export default function Home() {
       {/* Geometric pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-8 left-1/4 animate-spin" style={{animationDuration: '8s'}}>
-          <svg className="w-7 h-7 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-7 h-7" fill="#72569c" viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
         <div className="absolute top-8 right-1/4 animate-spin" style={{animationDuration: '8s', animationDelay: '2s'}}>
-          <svg className="w-7 h-7 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-7 h-7" fill="#e2007a" viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
@@ -290,23 +296,23 @@ export default function Home() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Step 1 */}
+
           <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-slate-700">
-            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-stone-700 to-slate-800 dark:from-stone-100 dark:to-slate-200 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-2xl font-bold text-white dark:text-stone-800">1</span>
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gray-500 to-gray-600 dark:from-gray-500 dark:to-gray-600 rounded-full flex items-center justify-center shadow-lg animate-step-1">
+              <span className="text-2xl font-bold text-white dark:text-white">1</span>
             </div>
             <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
               Wstępna rozmowa
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              Online lub osobiście – gdzie chcesz. Poznajemy Twoje oczekiwania i&nbsp;preferencje.
+              Online lub&nbsp;osobiście – gdzie&nbsp;chcesz. Poznajemy Twoje oczekiwania i&nbsp;preferencje.
             </p>
           </div>
 
-          {/* Step 2 */}
+
           <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-stone-700">
-            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-slate-700 to-stone-800 dark:from-slate-100 dark:to-stone-200 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-2xl font-bold text-white dark:text-slate-800">2</span>
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gray-500 to-gray-600 dark:from-gray-500 dark:to-gray-600 rounded-full flex items-center justify-center shadow-lg animate-step-2">
+              <span className="text-2xl font-bold text-white dark:text-white">2</span>
             </div>
             <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
               Personalny dobór ofert
@@ -316,16 +322,16 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Step 3 */}
+
           <div className="text-center p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700">
-            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-slate-800 dark:from-gray-100 dark:to-slate-200 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-2xl font-bold text-white dark:text-gray-800">3</span>
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gray-500 to-gray-600 dark:from-gray-500 dark:to-gray-600 rounded-full flex items-center justify-center shadow-lg animate-step-3">
+              <span className="text-2xl font-bold text-white dark:text-white">3</span>
             </div>
             <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
               Spotkania
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              Spotkania z&nbsp;osobami zgodnymi z&nbsp;Twoimi oczekiwaniami.
+              Organizumemy spotkania z&nbsp;osobami zgodnymi z&nbsp;Twoimi oczekiwaniami - na&nbsp;miejscu w&nbsp;biurze.
             </p>
           </div>
         </div>
@@ -338,14 +344,14 @@ export default function Home() {
             href="https://matrymonialne24.pl/ankieta/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-3 font-medium text-base hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300"
           >
-            Rozpocznij już dziś
+            Rozpocznij już&nbsp;dziś
           </a>
         </div>
       </div>
       
-      {/* Decorative flowing lines integrated into process section - keeping original size */}
+
       <div className="absolute bottom-0 left-0 right-0 h-32">
         <svg className="w-full h-full" viewBox="0 0 1200 128" preserveAspectRatio="none">
           <path d="M0,64 Q300,20 600,64 T1200,64" 
@@ -369,33 +375,222 @@ export default function Home() {
         </svg>
       </div>
       
-      {/* Floating hearts in process section - keeping original positions */}
+
       <div className="absolute bottom-16 left-1/6 animate-float opacity-70">
-        <svg className="w-3 h-3 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="#72569c" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </div>
-      <div className="absolute bottom-20 left-1/3 animate-float opacity-60" style={{animationDelay: '2s'}}>
-        <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+      <div className="absolute bottom-20 left-1/3 animate-float opacity-90" style={{animationDelay: '2s'}}>
+        <svg className="w-8 h-8" fill="#72569c" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </div>
       <div className="absolute bottom-12 right-1/3 animate-float opacity-70" style={{animationDelay: '4s'}}>
-        <svg className="w-3 h-3 text-stone-400 dark:text-stone-500" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="#72569c" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </div>
-      <div className="absolute bottom-16 right-1/6 animate-float opacity-60" style={{animationDelay: '1s'}}>
-        <svg className="w-4 h-4 text-stone-300 dark:text-stone-600" fill="currentColor" viewBox="0 0 24 24">
+      <div className="absolute bottom-16 right-1/6 animate-float opacity-90" style={{animationDelay: '1s'}}>
+        <svg className="w-8 h-8" fill="#72569c" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
       </div>
       
     </section>
 
+    {/* Premium Package Section */}
+    <section id="pakiet-premium" className="py-20 px-4 bg-gradient-to-br from-white via-pink-50 to-rose-50 dark:from-gray-900 dark:via-pink-950/20 dark:to-rose-950/20 relative overflow-hidden">
+
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#72569c]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#707173]/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-[#e2007a]/15 rounded-full blur-2xl"></div>
+      </div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+                  <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-r from-[#e2007a] to-pink-600 rounded-full flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <span className="text-sm font-semibold text-[#e2007a] uppercase tracking-wider">Pakiet Premium</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            Pakiet Najkorzystniejszy
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Dla tych, którzy nie&nbsp;idą na&nbsp;kompromisy. Zaprojektowany z&nbsp;myślą o&nbsp;osobach, które wiedzą, czego chcą.
+          </p>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-pink-100 dark:border-pink-900/30 p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-5 gap-x-8 gap-y-6">
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Przedstawianie Twojej oferty – do&nbsp;skutku</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Nie przestajemy działać, dopóki nie znajdziesz odpowiedniej osoby.</p>
+              </div>
+            </div>
+
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Status osoby anonimowej</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Nie chcesz ujawniać wizerunku? Możesz pozostać całkowicie incognito.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Możliwość kontaktu z&nbsp;osobami, które Cię&nbsp;wybrały</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Niczego nie&nbsp;przegapisz – każda szansa na&nbsp;spotkanie trafia do&nbsp;Ciebie.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Randki w&nbsp;prestiżowej lokalizacji</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Spotkanie na&nbsp;miejscu w&nbsp;naszym biurze – w&nbsp;bezpiecznym, eleganckim otoczeniu.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Pełna kontrola nad Twoimi danymi</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Twoje dane kontaktowe przekażemy tylko po&nbsp;obustronnej akceptacji.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Profesjonalna sesja zdjęciowa</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Twój wizerunek – uchwycony z&nbsp;klasą. Zajmiemy się&nbsp;wszystkim.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Ekskluzywna opieka przez 12 miesięcy</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Starannie wyselekcjonowane propozycje przez nasze Biuro – przez cały rok.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Stały kontakt z&nbsp;właścicielem biura</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Nie&nbsp;jesteś tylko numerem w&nbsp;systemie. Bezpośredni dostęp do&nbsp;osoby decyzyjnej.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Pierwszeństwo wyboru</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Nowi klienci? Najpierw poznasz ich&nbsp;Ty. Zanim zobaczą ich&nbsp;Klienci z&nbsp;innych pakietów.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 bg-[#e2007a] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Wywiad i&nbsp;sesja u&nbsp;Ciebie</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Jesteś zapracowany? Przyjedziemy do&nbsp;Twojego biura lub&nbsp;domu.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
+            <div className="mb-6">
+              <p className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                Pakiet, który działa w&nbsp;tle, gdy&nbsp;Ty skupiasz się&nbsp;na&nbsp;życiu.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300">
+                Dyskretnie, skutecznie i&nbsp;z&nbsp;pełnym szacunkiem do&nbsp;Twojego czasu.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://matrymonialne24.pl/cennik/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[#72569c] to-purple-600 text-white rounded-full px-8 py-3 font-medium text-base hover:from-purple-600 hover:to-[#72569c] transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Zobacz ceny
+              </a>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Wyjątkowe relacje wymagają wyjątkowego podejścia
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row-reverse gap-4 justify-center items-center mt-4">
+              <a
+                href="https://matrymonialne24.pl/promocje/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[#e2007a] to-pink-600 text-white rounded-full px-8 py-3 font-medium text-base hover:from-pink-600 hover:to-[#e2007a] transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Zobacz promocje
+              </a>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Sprawdź dostępne rabaty i&nbsp;oferty specjalne
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Contact Form Section */}
     <section id="kontakt" className="py-20 px-4 bg-gradient-to-br from-stone-100 via-slate-200 to-gray-300 dark:from-gray-800 dark:via-stone-700 dark:to-slate-600 relative overflow-hidden">
-      {/* Marble texture overlays */}
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.18)_1px,transparent_1px)] bg-[length:35px_35px]"></div>
       <div className="absolute inset-0 opacity-25 bg-[linear-gradient(45deg,transparent_35%,rgba(255,255,255,0.08)_50%,transparent_65%)] bg-[length:70px_70px]"></div>
       
@@ -405,7 +600,7 @@ export default function Home() {
         </h2>
         <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-12">
           Wypełnij formularz poniżej albo zadzwoń na&nbsp;numer{" "}
-          <a href="tel:+48600434700" className="hover:text-gray-900 dark:hover:text-white transition-colors font-medium inline-flex items-center gap-1">
+          <a href="tel:+48600434700" className="hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors font-medium inline-flex items-center gap-1">
             <svg className="w-4 h-4 text-stone-600 dark:text-stone-400" fill="currentColor" viewBox="0 0 24 24">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
@@ -424,7 +619,7 @@ export default function Home() {
               Dziękujemy za&nbsp;wiadomość!
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Otrzymaliśmy Twoją wiadomość i&nbsp;odezwiemy się w&nbsp;ciągu 24&nbsp;godzin.
+              Otrzymaliśmy Twoją wiadomość i&nbsp;odezwiemy się&nbsp;w&nbsp;ciągu 24&nbsp;godzin.
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
@@ -478,7 +673,7 @@ export default function Home() {
 
           <div>
             <label htmlFor="age" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Wiek
+              Twój wiek
             </label>
             <select
               id="age"
@@ -504,7 +699,7 @@ export default function Home() {
               name="message"
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-              placeholder="Opowiedz nam o swoich oczekiwaniach..."
+              placeholder="Opowiedz nam o&nbsp;swoich oczekiwaniach..."
             ></textarea>
           </div>
 
@@ -517,13 +712,13 @@ export default function Home() {
               className="mt-1 h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
             />
             <label htmlFor="privacy" className="ml-3 text-sm text-gray-600 dark:text-gray-300">
-              Zgadzam się na&nbsp;przetwarzanie moich danych osobowych zgodnie z&nbsp;polityką prywatności *
+              Zgadzam się&nbsp;na&nbsp;przetwarzanie moich danych osobowych zgodnie z&nbsp;polityką prywatności *
             </label>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-4 font-medium text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            className="w-full bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-4 font-medium text-lg hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300"
           >
             Wyślij wiadomość
           </button>
@@ -533,26 +728,13 @@ export default function Home() {
       
     </section>
 
-    {/* Decorative Divider 4 */}
-    <div className="relative h-12 bg-gradient-to-br from-stone-100 via-slate-200 to-gray-300 dark:from-gray-800 dark:via-stone-700 dark:to-slate-600 overflow-hidden">
-      {/* Elegant wave pattern */}
-      <svg className="absolute top-0 w-full h-full" viewBox="0 0 1200 32" preserveAspectRatio="none">
-        <path d="M0,16 Q200,8 400,16 T800,16 Q1000,8 1200,16 L1200,32 L0,32 Z" 
-              fill="currentColor" 
-              className="text-stone-100 dark:text-gray-800 opacity-60"
-        />
-        <path d="M0,20 Q300,12 600,20 T1200,20 L1200,32 L0,32 Z" 
-              fill="currentColor" 
-              className="text-stone-100 dark:text-gray-800 opacity-40"
-        />
-      </svg>
-    </div>
-
     {/* Footer */}
-    <footer className="bg-gradient-to-br from-stone-100 via-slate-200 to-gray-300 dark:from-gray-800 dark:via-stone-700 dark:to-slate-600 relative overflow-hidden">
-      {/* Marble texture overlays */}
+    <footer className="bg-gradient-to-br from-purple-100 via-pink-100 to-rose-200 dark:from-purple-900/30 dark:via-pink-900/20 dark:to-rose-900/30 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_40%_60%,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[length:30px_30px]"></div>
       <div className="absolute inset-0 opacity-15 bg-[linear-gradient(120deg,transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] bg-[length:80px_80px]"></div>
+      <div className="absolute top-4 left-10 w-16 h-16 bg-purple-200/30 dark:bg-purple-600/20 rounded-full blur-xl"></div>
+      <div className="absolute bottom-4 right-10 w-20 h-20 bg-pink-200/30 dark:bg-pink-600/20 rounded-full blur-xl"></div>
+      <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-rose-200/40 dark:bg-rose-600/20 rounded-full blur-lg"></div>
       
       <div className="relative z-10 py-6 px-8">
         <div className="w-full">
@@ -560,18 +742,18 @@ export default function Home() {
           <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
             {/* Social Media Icons */}
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors">
-                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <a href="#" className="w-10 h-10 bg-gradient-to-br from-purple-200 to-purple-300 dark:bg-gradient-to-br dark:from-purple-700/50 dark:to-purple-800/50 rounded-full flex items-center justify-center hover:from-[#72569c] hover:to-purple-600 dark:hover:from-[#72569c] dark:hover:to-purple-600 transition-all duration-300 hover:scale-110 shadow-md">
+                <svg className="w-5 h-5 text-purple-700 dark:text-purple-300 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors">
-                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <a href="#" className="w-10 h-10 bg-gradient-to-br from-pink-200 to-pink-300 dark:bg-gradient-to-br dark:from-pink-700/50 dark:to-pink-800/50 rounded-full flex items-center justify-center hover:from-[#e2007a] hover:to-pink-600 dark:hover:from-[#e2007a] dark:hover:to-pink-600 transition-all duration-300 hover:scale-110 shadow-md">
+                <svg className="w-5 h-5 text-pink-700 dark:text-pink-300 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors">
-                <svg className="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <a href="#" className="w-10 h-10 bg-gradient-to-br from-rose-200 to-rose-300 dark:bg-gradient-to-br dark:from-rose-700/50 dark:to-rose-800/50 rounded-full flex items-center justify-center hover:from-rose-500 hover:to-red-500 dark:hover:from-rose-500 dark:hover:to-red-500 transition-all duration-300 hover:scale-110 shadow-md">
+                <svg className="w-5 h-5 text-rose-700 dark:text-rose-300 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </a>
@@ -579,34 +761,37 @@ export default function Home() {
             
             {/* Phone */}
             <div>
-              <a href="tel:+48600434700" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-stone-700 dark:hover:text-stone-300 transition-colors">
+              <a href="tel:+48600434700" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#72569c] dark:hover:text-[#72569c] transition-colors">
                 +48 600 434 700
               </a>
             </div>
             
             {/* Email */}
             <div>
-              <a href="mailto:magnes@matrymonialne24.pl" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-stone-700 dark:hover:text-stone-300 transition-colors">
-                kontakt@magnes.pl
+              <a 
+                href="mailto:magnes@matrymonialne24.pl" 
+                className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#72569c] dark:hover:text-[#72569c] transition-colors cursor-pointer"
+              >
+                magnes@matrymonialne24.pl
               </a>
             </div>
           </div>
           
           {/* Second row: Legal Links */}
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
-            <a href="https://matrymonialne24.pl/regulamin/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+            <a href="https://matrymonialne24.pl/regulamin/" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-[#72569c] dark:hover:text-[#72569c] transition-colors font-medium">
               Regulamin
             </a>
-            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+            <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-[#72569c] dark:hover:text-[#72569c] transition-colors font-medium">
               Ustawienia ciasteczek
             </a>
-            <a href="https://matrymonialne24.pl/wp-content/uploads/2025/05/Polityka-prywatnosci-Magnes.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium">
+            <a href="https://matrymonialne24.pl/wp-content/uploads/2025/05/Polityka-prywatnosci-Magnes.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-[#72569c] dark:hover:text-[#72569c] transition-colors font-medium">
               Polityka Prywatności
             </a>
           </div>
           
           {/* Copyright - Bottom */}
-          <div className="text-center text-sm text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-600 pt-6">
+          <div className="text-center text-sm text-gray-600 dark:text-gray-400 border-t border-gray-400 dark:border-gray-500 pt-6">
             <p>© Biuro Matrymonialne Magnes 2025 Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
