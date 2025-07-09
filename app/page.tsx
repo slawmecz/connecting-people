@@ -183,7 +183,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden min-h-screen">
+      <section className="relative overflow-hidden min-h-screen flex flex-col">
       {/* Marble background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-stone-300 to-slate-400 dark:from-slate-800 dark:via-gray-700 dark:to-stone-600">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
@@ -206,8 +206,9 @@ export default function Home() {
            </svg>
          </div>
       </div>
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center flex-1 py-20">
+      
+      {/* Content - perfectly centered */}
+      <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 text-center">
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-center animate-fade-in">Wyjątkowe relacje zaczynają się od&nbsp;dyskrecji.</h1>
         <p className="text-base sm:text-lg md:text-xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl text-center leading-relaxed animate-fade-in" style={{animationDelay: '0.3s'}}>
           Ekskluzywne kojarzenie par dla osób, które nie&nbsp;godzą się na&nbsp;kompromisy.
@@ -221,23 +222,27 @@ export default function Home() {
         </a>
       </div>
       
-      {/* Decorative elements in hero section */}
-      <div className="absolute bottom-24 sm:bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+      {/* Decorative elements in hero section - moved higher for mobile */}
+      <div className="absolute bottom-16 sm:bottom-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-stone-400 dark:via-stone-500 to-transparent"></div>
       </div>
       
-      {/* Floating rectangles in hero */}
-      <div className="absolute bottom-24 sm:bottom-20 left-1/4 animate-pulse opacity-70">
+      {/* Floating rectangles in hero - moved higher for mobile */}
+      <div className="absolute bottom-16 sm:bottom-32 left-1/4 animate-pulse opacity-70">
         <div className="w-4 h-4 bg-[#72569c] transform rotate-45"></div>
       </div>
-      <div className="absolute bottom-24 sm:bottom-20 right-1/4 animate-pulse opacity-70" style={{animationDelay: '1s'}}>
+      <div className="absolute bottom-16 sm:bottom-32 right-1/4 animate-pulse opacity-70" style={{animationDelay: '1s'}}>
         <div className="w-4 h-4 bg-[#72569c] transform rotate-45"></div>
       </div>
-      <a href="#jak-dzialamy" className="absolute bottom-6 sm:bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 animate-bounce-gentle group z-50" style={{animationDelay: '1s'}}>
-        <svg className="w-12 h-12 sm:w-16 sm:h-16 text-stone-500 dark:text-stone-400 group-hover:text-[#e2007a] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 16l-6-6h12l-6 6z"/>
-        </svg>
-      </a>
+      
+      {/* Arrow - moved to very bottom and made larger on mobile */}
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <a href="#jak-dzialamy" className="block cursor-pointer opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 animate-bounce-gentle group" style={{animationDelay: '1s'}}>
+          <svg className="w-16 h-16 sm:w-20 sm:h-20 text-stone-500 dark:text-stone-400 group-hover:text-[#e2007a] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 16l-6-6h12l-6 6z"/>
+          </svg>
+        </a>
+      </div>
       
 
       
