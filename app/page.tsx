@@ -706,26 +706,26 @@ export default function Home() {
       <div className="absolute inset-0 opacity-25 bg-[linear-gradient(45deg,transparent_35%,rgba(255,255,255,0.08)_50%,transparent_65%)] bg-[length:70px_70px]"></div>
       
       {/* Moving balloons */}
-      <div className="absolute left-4 top-0 h-full w-48 overflow-hidden pointer-events-none">
-        <div className="absolute animate-balloon-float-1 left-6">
+      <div className="absolute left-16 top-0 h-full w-24 overflow-hidden pointer-events-none">
+        <div className="absolute animate-balloon-float-1 left-4">
           <img src="/slice1.svg" alt="" className="w-12 h-12 opacity-70" />
         </div>
         <div className="absolute animate-balloon-float-2 left-8" style={{animationDelay: '3s'}}>
           <img src="/slice1.svg" alt="" className="w-10 h-10 opacity-60" />
         </div>
-        <div className="absolute animate-balloon-float-3 left-4" style={{animationDelay: '6s'}}>
+        <div className="absolute animate-balloon-float-3 left-2" style={{animationDelay: '6s'}}>
           <img src="/slice1.svg" alt="" className="w-14 h-14 opacity-50" />
         </div>
       </div>
       
-      <div className="absolute right-4 top-0 h-full w-48 overflow-hidden pointer-events-none">
-        <div className="absolute animate-balloon-float-1 left-6" style={{animationDelay: '1.5s'}}>
+      <div className="absolute right-16 top-0 h-full w-24 overflow-hidden pointer-events-none">
+        <div className="absolute animate-balloon-float-1 right-4" style={{animationDelay: '1.5s'}}>
           <img src="/slice1.svg" alt="" className="w-11 h-11 opacity-65" />
         </div>
-        <div className="absolute animate-balloon-float-2 left-4" style={{animationDelay: '4.5s'}}>
+        <div className="absolute animate-balloon-float-2 right-8" style={{animationDelay: '4.5s'}}>
           <img src="/slice1.svg" alt="" className="w-13 h-13 opacity-55" />
         </div>
-        <div className="absolute animate-balloon-float-3 left-8" style={{animationDelay: '7.5s'}}>
+        <div className="absolute animate-balloon-float-3 right-2" style={{animationDelay: '7.5s'}}>
           <img src="/slice1.svg" alt="" className="w-9 h-9 opacity-70" />
         </div>
       </div>
