@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showFloatingMenu, setShowFloatingMenu] = useState(false);
+  const [emailValue, setEmailValue] = useState('');
+  const [phoneValue, setPhoneValue] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,9 +20,27 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMobileMenuOpen && !target.closest('[data-mobile-menu]')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    
+    // Custom validation: require either email or phone
+    if (!emailValue.trim() && !phoneValue.trim()) {
+      alert('Proszę podać adres e-mail lub numer telefonu.');
+      return;
+    }
     
     try {
       const response = await fetch(form.action, {
@@ -33,6 +54,8 @@ export default function Home() {
       if (response.ok) {
         setIsSubmitted(true);
         form.reset();
+        setEmailValue('');
+        setPhoneValue('');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -42,35 +65,123 @@ export default function Home() {
   return (
     <div>
       {/* Floating Menu */}
-      <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${showFloatingMenu ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-        <nav className="bg-white dark:bg-gray-800 rounded-full px-6 py-3 shadow-lg border border-gray-200 dark:border-gray-700">
+      <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-[9999] transition-all duration-300 ${showFloatingMenu ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+        {/* Desktop Menu */}
+        <nav className="hidden md:block bg-white dark:bg-gray-800 rounded-full px-8 py-3 shadow-lg border border-gray-200 dark:border-gray-700">
           <div className="flex items-center space-x-6">
             <a
+              href="https://matrymonialne24.pl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center hover:opacity-80 transition-opacity"
+            >
+              <img src="/Logo.svg" alt="Biuro Matrymonialne Magnes" className="h-10 w-auto max-w-none" />
+            </a>
+            <div className="h-6 w-px bg-gray-300 dark:bg-gray-600"></div>
+            <a
               href="#jak-dzialamy"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 whitespace-nowrap"
             >
               Dlaczego My?
             </a>
             <a
               href="#jak-to-dziala"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 whitespace-nowrap"
             >
               Jak to działa?
             </a>
             <a
               href="#pakiet-premium"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 whitespace-nowrap"
             >
               Pakiet Premium
             </a>
             <a
+              href="https://matrymonialne24.pl/o-nas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 whitespace-nowrap"
+            >
+              O nas
+            </a>
+            <a
               href="#kontakt"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-3 py-1 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 whitespace-nowrap"
             >
               Kontakt
             </a>
           </div>
         </nav>
+
+        {/* Mobile Menu */}
+        <div className="md:hidden relative" data-mobile-menu>
+          <nav className="bg-white dark:bg-gray-800 rounded-full px-4 py-3 shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between">
+              <a
+                href="https://matrymonialne24.pl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-80 transition-opacity"
+              >
+                <img src="/Logo.svg" alt="Biuro Matrymonialne Magnes" className="h-8 w-auto max-w-none" />
+              </a>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                </svg>
+              </button>
+            </div>
+          </nav>
+
+          {/* Mobile Dropdown Menu */}
+          {isMobileMenuOpen && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 py-4">
+              <div className="flex flex-col space-y-2">
+                <a
+                  href="#jak-dzialamy"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-6 py-3 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  Dlaczego My?
+                </a>
+                <a
+                  href="#jak-to-dziala"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-6 py-3 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  Jak to działa?
+                </a>
+                <a
+                  href="#pakiet-premium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-6 py-3 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  Pakiet Premium
+                </a>
+                <a
+                  href="https://matrymonialne24.pl/o-nas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-6 py-3 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  O nas
+                </a>
+                <a
+                  href="#kontakt"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#e2007a] dark:hover:text-[#e2007a] transition-colors px-6 py-3 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  Kontakt
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden" style={{height: 'calc(100vh + 64px)'}}>
       {/* Marble background */}
@@ -594,6 +705,31 @@ export default function Home() {
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.18)_1px,transparent_1px)] bg-[length:35px_35px]"></div>
       <div className="absolute inset-0 opacity-25 bg-[linear-gradient(45deg,transparent_35%,rgba(255,255,255,0.08)_50%,transparent_65%)] bg-[length:70px_70px]"></div>
       
+      {/* Moving balloons */}
+      <div className="absolute left-4 top-0 h-full w-48 overflow-hidden pointer-events-none">
+        <div className="absolute animate-balloon-float-1 left-6">
+          <img src="/slice1.svg" alt="" className="w-12 h-12 opacity-70" />
+        </div>
+        <div className="absolute animate-balloon-float-2 left-8" style={{animationDelay: '3s'}}>
+          <img src="/slice1.svg" alt="" className="w-10 h-10 opacity-60" />
+        </div>
+        <div className="absolute animate-balloon-float-3 left-4" style={{animationDelay: '6s'}}>
+          <img src="/slice1.svg" alt="" className="w-14 h-14 opacity-50" />
+        </div>
+      </div>
+      
+      <div className="absolute right-4 top-0 h-full w-48 overflow-hidden pointer-events-none">
+        <div className="absolute animate-balloon-float-1 left-6" style={{animationDelay: '1.5s'}}>
+          <img src="/slice1.svg" alt="" className="w-11 h-11 opacity-65" />
+        </div>
+        <div className="absolute animate-balloon-float-2 left-4" style={{animationDelay: '4.5s'}}>
+          <img src="/slice1.svg" alt="" className="w-13 h-13 opacity-55" />
+        </div>
+        <div className="absolute animate-balloon-float-3 left-8" style={{animationDelay: '7.5s'}}>
+          <img src="/slice1.svg" alt="" className="w-9 h-9 opacity-70" />
+        </div>
+      </div>
+      
       <div className="max-w-2xl mx-auto relative z-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
           Umów się na&nbsp;dyskretną rozmowę
@@ -622,107 +758,202 @@ export default function Home() {
               Otrzymaliśmy Twoją wiadomość i&nbsp;odezwiemy się&nbsp;w&nbsp;ciągu 24&nbsp;godzin.
             </p>
             <button
-              onClick={() => setIsSubmitted(false)}
+              onClick={() => {
+                setIsSubmitted(false);
+                setEmailValue('');
+                setPhoneValue('');
+              }}
               className="inline-block bg-black text-white dark:bg-white dark:text-black rounded-full px-6 py-2 font-medium text-base hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               Wyślij kolejną wiadomość
             </button>
           </div>
         ) : (
-          <form action="https://formspree.io/f/xnnvyowd" method="POST" onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Imię *
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-              placeholder="Wprowadź swoje imię"
-            />
-          </div>
+          <form action="https://formspree.io/f/xnnvyowd" method="POST" onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Imię
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                placeholder="Wprowadź swoje imię"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Adres email *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-              placeholder="twoj@email.com"
-            />
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="age" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Wiek
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  required
+                  min="18"
+                  max="100"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="Wprowadź swój wiek"
+                />
+              </div>
 
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Numer telefonu
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-              placeholder="+48 123 456 789"
-            />
-          </div>
+              <div>
+                <label htmlFor="marital_status" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Stan cywilny
+                </label>
+                <select
+                  id="marital_status"
+                  name="marital_status"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                >
+                  <option value="">Wybierz stan cywilny</option>
+                  <option value="kawaler/panna">Kawaler/Panna</option>
+                  <option value="rozwiedziony/a">Rozwiedziony/a</option>
+                  <option value="w separacji">W separacji</option>
+                  <option value="wdowiec/wdowa">Wdowiec/Wdowa</option>
+                </select>
+              </div>
 
-          <div>
-            <label htmlFor="age" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Twój wiek
-            </label>
-            <select
-              id="age"
-              name="age"
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+              <div>
+                <label htmlFor="profession" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Zawód
+                </label>
+                <input
+                  type="text"
+                  id="profession"
+                  name="profession"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="Wprowadź swój zawód"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="education" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Wykształcenie
+                </label>
+                <select
+                  id="education"
+                  name="education"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                >
+                  <option value="">Wybierz wykształcenie</option>
+                  <option value="podstawowe">Podstawowe</option>
+                  <option value="zawodowe">Zawodowe</option>
+                  <option value="srednie">Średnie</option>
+                  <option value="wyzsze">Wyższe</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="voivodeship" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Województwo
+                </label>
+                <select
+                  id="voivodeship"
+                  name="voivodeship"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                >
+                  <option value="">Wybierz województwo</option>
+                  <option value="dolnoslaskie">Dolnośląskie</option>
+                  <option value="kujawsko-pomorskie">Kujawsko-pomorskie</option>
+                  <option value="lubelskie">Lubelskie</option>
+                  <option value="lubuskie">Lubuskie</option>
+                  <option value="lodzkie">Łódzkie</option>
+                  <option value="malopolskie">Małopolskie</option>
+                  <option value="mazowieckie">Mazowieckie</option>
+                  <option value="opolskie">Opolskie</option>
+                  <option value="podkarpackie">Podkarpackie</option>
+                  <option value="podlaskie">Podlaskie</option>
+                  <option value="pomorskie">Pomorskie</option>
+                  <option value="slaskie">Śląskie</option>
+                  <option value="swietokrzyskie">Świętokrzyskie</option>
+                  <option value="warminsko-mazurskie">Warmińsko-mazurskie</option>
+                  <option value="wielkopolskie">Wielkopolskie</option>
+                  <option value="zachodniopomorskie">Zachodniopomorskie</option>
+                  <option value="zagranica">Zagranica</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="partner_age" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Wiek wybranki/a
+                </label>
+                <select
+                  id="partner_age"
+                  name="partner_age"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                >
+                  <option value="">Wybierz preferencje wiekowe</option>
+                  <option value="w zbliżonym wieku">W zbliżonym wieku</option>
+                  <option value="starszy/a">Starszy/a</option>
+                  <option value="młodszy/a">Młodszy/a</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Twój adres e-mail
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={emailValue}
+                  onChange={(e) => setEmailValue(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="twoj@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Numer telefonu
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={phoneValue}
+                  onChange={(e) => setPhoneValue(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  placeholder="+48 123 456 789"
+                />
+              </div>
+            </div>
+
+            <div className="text-sm text-gray-600 dark:text-gray-400 mt-6 mb-6">
+              Proszę podać adres e-mail lub numer telefonu (wystarczy jedno z nich)
+            </div>
+
+            <div className="flex items-start mb-6">
+              <input
+                type="checkbox"
+                id="contact_consent"
+                name="contact_consent"
+                required
+                className="mt-1 h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
+              />
+              <label htmlFor="contact_consent" className="ml-3 text-sm text-gray-600 dark:text-gray-300">
+                Wyrażam zgodę, aby Doradca Matrymonialny skontaktował się&nbsp;ze&nbsp;mną przed zapisaniem się&nbsp;do&nbsp;Biura.
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-4 font-medium text-lg hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300"
             >
-              <option value="">Wybierz przedział wiekowy</option>
-              <option value="18-25">18-25 lat</option>
-              <option value="25-35">25-35 lat</option>
-              <option value="35-45">35-45 lat</option>
-              <option value="45-55">45-55 lat</option>
-              <option value="55-65">55-65 lat</option>
-              <option value="65+">65+ lat</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Wiadomość
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-              placeholder="Opowiedz nam o&nbsp;swoich oczekiwaniach..."
-            ></textarea>
-          </div>
-
-          <div className="flex items-start">
-            <input
-              type="checkbox"
-              id="privacy"
-              name="privacy"
-              required
-              className="mt-1 h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
-            />
-            <label htmlFor="privacy" className="ml-3 text-sm text-gray-600 dark:text-gray-300">
-              Zgadzam się&nbsp;na&nbsp;przetwarzanie moich danych osobowych zgodnie z&nbsp;polityką prywatności *
-            </label>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-black text-white dark:bg-white dark:text-black rounded-full px-8 py-4 font-medium text-lg hover:bg-[#e2007a] hover:text-white dark:hover:bg-[#e2007a] dark:hover:text-white transition-all duration-300"
-          >
-            Wyślij wiadomość
-          </button>
-        </form>
+              Wyślij
+            </button>
+          </form>
         )}
       </div>
       

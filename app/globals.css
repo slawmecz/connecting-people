@@ -164,6 +164,18 @@
   .animate-step-3 {
     animation: stepAnimation3 5s ease-in-out infinite;
   }
+  
+  .animate-balloon-float-1 {
+    animation: balloonFloat1 12s ease-in-out infinite;
+  }
+  
+  .animate-balloon-float-2 {
+    animation: balloonFloat2 14s ease-in-out infinite;
+  }
+  
+  .animate-balloon-float-3 {
+    animation: balloonFloat3 16s ease-in-out infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -323,5 +335,92 @@
   }
   80%, 100% {
     background: linear-gradient(to bottom right, #6b7280, #4b5563);
+  }
+}
+
+@keyframes balloonFloat1 {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  20% {
+    transform: translateY(80vh) translateX(10px) rotate(5deg);
+  }
+  40% {
+    transform: translateY(60vh) translateX(-5px) rotate(-3deg);
+  }
+  60% {
+    transform: translateY(40vh) translateX(8px) rotate(2deg);
+  }
+  80% {
+    transform: translateY(20vh) translateX(-3px) rotate(-1deg);
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloat2 {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(75vh) translateX(-8px) rotate(-4deg) scale(1.1);
+  }
+  45% {
+    transform: translateY(55vh) translateX(12px) rotate(6deg) scale(0.9);
+  }
+  65% {
+    transform: translateY(35vh) translateX(-6px) rotate(-2deg) scale(1.05);
+  }
+  85% {
+    transform: translateY(15vh) translateX(4px) rotate(3deg) scale(0.95);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloat3 {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  18% {
+    transform: translateY(82vh) translateX(6px) rotate(3deg) scale(1.1);
+  }
+  35% {
+    transform: translateY(65vh) translateX(-10px) rotate(-5deg) scale(0.85);
+  }
+  55% {
+    transform: translateY(45vh) translateX(15px) rotate(7deg) scale(1.15);
+  }
+  75% {
+    transform: translateY(25vh) translateX(-8px) rotate(-4deg) scale(0.9);
+  }
+  92% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0;
   }
 }
