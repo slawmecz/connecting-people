@@ -183,7 +183,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden" style={{height: '110vh'}}>
+      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden min-h-screen" style={{minHeight: '100dvh'}}>
       {/* Marble background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-stone-300 to-slate-400 dark:from-slate-800 dark:via-gray-700 dark:to-stone-600">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
