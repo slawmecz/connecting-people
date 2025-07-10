@@ -183,7 +183,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden min-h-screen" style={{minHeight: '100dvh'}}>
+      <section className="flex flex-col justify-center items-center px-4 text-center gap-6 relative overflow-hidden min-h-screen md:h-[110vh]" style={{minHeight: '100dvh'}}>
       {/* Marble background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-stone-300 to-slate-400 dark:from-slate-800 dark:via-gray-700 dark:to-stone-600">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
@@ -706,7 +706,7 @@ export default function Home() {
       <div className="absolute inset-0 opacity-25 bg-[linear-gradient(45deg,transparent_35%,rgba(255,255,255,0.08)_50%,transparent_65%)] bg-[length:70px_70px]"></div>
       
       {/* Moving balloons */}
-      <div className="absolute left-16 top-0 h-full w-24 overflow-hidden pointer-events-none">
+      <div className="absolute left-20 top-0 h-full w-40 overflow-hidden pointer-events-none">
         <div className="absolute animate-balloon-float-1 left-4">
           <img src="/slice1.svg" alt="" className="w-12 h-12 opacity-70" />
         </div>
@@ -718,14 +718,14 @@ export default function Home() {
         </div>
       </div>
       
-      <div className="absolute right-16 top-0 h-full w-24 overflow-hidden pointer-events-none">
-        <div className="absolute animate-balloon-float-1 right-4" style={{animationDelay: '1.5s'}}>
+      <div className="absolute right-20 top-0 h-full w-40 overflow-hidden pointer-events-none">
+        <div className="absolute animate-balloon-float-1 right-6" style={{animationDelay: '1.5s'}}>
           <img src="/slice1.svg" alt="" className="w-11 h-11 opacity-65" />
         </div>
-        <div className="absolute animate-balloon-float-2 right-8" style={{animationDelay: '4.5s'}}>
+        <div className="absolute animate-balloon-float-2 right-12" style={{animationDelay: '4.5s'}}>
           <img src="/slice1.svg" alt="" className="w-13 h-13 opacity-55" />
         </div>
-        <div className="absolute animate-balloon-float-3 right-2" style={{animationDelay: '7.5s'}}>
+        <div className="absolute animate-balloon-float-3 right-8" style={{animationDelay: '7.5s'}}>
           <img src="/slice1.svg" alt="" className="w-9 h-9 opacity-70" />
         </div>
       </div>
