@@ -11,6 +11,6 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000`
+Visit `https://connecting-people-cyan.vercel.app/`
 
 
